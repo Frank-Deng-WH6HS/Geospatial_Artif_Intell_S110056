@@ -12,5 +12,12 @@ Material_S000002/*
 
 Literature_Analysis_S000002/*
 
+Source/*
+Process/*
+Output_*/*
+Output_*/*/
+
+Spatio-Temporal-Series_Modeling/*.pdf
+
 Zotero_Record/*/
 Zotero_Record/zotero.sqlite?*

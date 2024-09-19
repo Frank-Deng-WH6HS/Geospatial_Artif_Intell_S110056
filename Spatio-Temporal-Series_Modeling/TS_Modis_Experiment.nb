@@ -1,0 +1,567 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17545,        558]
+NotebookOptionsPosition[     14628,        463]
+NotebookOutlinePosition[     15162,        483]
+CellTagsIndexPosition[     15119,        480]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["1. \:6570\:636e\:51c6\:5907", "Section"],
+
+Cell[CellGroupData[{
+
+Cell["1.1. \:6570\:636e\:6765\:6e90", "Subsection"],
+
+Cell["Terra/Aqua\:536b\:661fMODIS\:4f20\:611f\:5668\:6570\:636e\:53cd\:6f14\
+\:6240\:5f97\:7684\:51c0\:521d\:7ea7\:751f\:4ea7\:529b(NPP)\:9010\:5e74\:6570\
+\:636e", "Text"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+\:4ea7\:54c1MOD17A3H \
+v006\:7531\:7f8e\:56fd\:5730\:8d28\:8c03\:67e5\:5c40(USGS)\:751f\:4ea7\:548c\
+\:6258\:7ba1(DOI: 10.5067/MODIS/MOD17A3H.006)\
+\>", "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+
+Cell["int16\:7c7b\:578b", "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+
+Cell[TextData[{
+ "NPP\:7ed3\:679c\:5355\:4f4d\:4e3akg C/m\.b2, \:5e76\:7f29\:5c0f\:5230",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["10", 
+    RowBox[{"-", "4"}]], TraditionalForm]]],
+ "\:500d"
+}], "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+
+Cell["\:90e8\:5206\:672a\:8ba1\:7b97NPP\:7684\:50cf\:5143\:6839\:636e\:6027\
+\:8d28\:88ab\:8d4b\:503c32761~32767", "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["1.2. \:6570\:636e\:5bfc\:5165\:4e0e\:5f02\:5e38\:503c\:79fb\:9664", \
+"Subsection"],
+
+Cell["\:65f6\:95f4\:8303\:56f4: 2004\:5e74~2015\:5e74", "Text"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ts", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Import", "[", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+        "\"\<../Source/MOD17A3H_Lyr_Stk.tif\>\""}], "]"}], "//", 
+      RowBox[{
+       RowBox[{"ImageData", "[", 
+        RowBox[{"#", ",", "\"\<Bit16\>\""}], "]"}], "&"}]}], "//", 
+     RowBox[{
+      RowBox[{"Part", "[", 
+       RowBox[{"#", ",", "All", ",", "All", ",", 
+        RowBox[{"5", ";;", "16"}]}], "]"}], "&"}]}], "//", 
+    RowBox[{
+     RowBox[{"Flatten", "[", 
+      RowBox[{"#", ",", "1"}], "]"}], "&"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ts", "-=", "32768"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ts", "=", 
+   RowBox[{"DeleteCases", "[", 
+    RowBox[{"ts", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"_", "?", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"#", ">", "32760"}], "&"}], ")"}]}], ")"}], ".."}], 
+      "}"}]}], "]"}]}], ";"}]}], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ts", "//", "Length"}]], "Input"],
+
+Cell[BoxData["1340501"], "Output"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["1.3. \:8bad\:7ec3\:6837\:672c\:9009\:53d6", "Subsection"],
+
+Cell["\<\
+\:4e0d\:653e\:56de\:968f\:673a\:62bd\:53d6\:4e8c\:5341\:4e07\:4e2a\:6837\:672c\
+, \:6837\:672c\:7684\:7a7a\:95f4\:5206\:5e03\:5b8c\:5168\:968f\:673a, \:62bd\
+\:53d6\:7ed3\:679c\:4e2d\:5341\:516d\:4e07\:4e2a\:6837\:672c\:88ab\:7528\:4f5c\
+\:8bad\:7ec3\:96c6, \:56db\:4e07\:4e2a\:6837\:672c\:88ab\:7528\:4f5c\:6d4b\
+\:8bd5\:96c6, \:4e8c\:8005\:4e92\:65a5. \
+\>", "Text"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Use", " ", "DOI", " ", "of", " ", "data", " ", "to", " ", "initialize", 
+    " ", "the", " ", "random", " ", 
+    RowBox[{"seed", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"SeedRandom", "[", "\"\<10.5067/MODIS/MOD17A3H.006\>\"", "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"tssmp", "=", 
+     RowBox[{"ts", "//", 
+      RowBox[{
+       RowBox[{"RandomSample", "[", 
+        RowBox[{"#", ",", "200000"}], "]"}], "&"}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"train", "=", 
+     RowBox[{"tssmp", "[", 
+      RowBox[{"[", 
+       RowBox[{"1", ";;", "160000"}], "]"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"test", "=", 
+     RowBox[{"tssmp", "[", 
+      RowBox[{"[", 
+       RowBox[{"160001", ";;", 
+        RowBox[{"-", "1"}]}], "]"}], "]"}]}], ";"}]}]}]], "Input"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2. \:4ec5\:8003\:8651\:65f6\:95f4\:56e0\:7d20\:7684\:56de\:5f52\:6a21\
+\:578b", "Section"],
+
+Cell[CellGroupData[{
+
+Cell["2.1. \:5229\:7528\:524dn\:5e74NPP\:9884\:6d4b\:4e0b\:4e00\:5e74NPP", \
+"Subsection"],
+
+Cell[CellGroupData[{
+
+Cell["\:6a21\:578b\:5047\:8bbe: ", "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+
+Cell[TextData[{
+ "\:6bcf\:4e2a\:50cf\:5143\:6240\:5728\:4f4d\:7f6e, \:5728",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["t", 
+    RowBox[{"n", "+", "1"}]], TraditionalForm]]],
+ "\:65f6\:523b\:7684NPP\:503c, \:53ea\:548c\:8be5\:4f4d\:7f6e",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["t", "1"], ",", " ", 
+    SubscriptBox["t", "2"], ",", " ", "\[Ellipsis]", ",", " ", 
+    SubscriptBox["t", "n"]}], TraditionalForm]]],
+ "\:65f6\:523b\:7684NPP\:503c\:6709\:5173, \:4e0e\:5176\:4ed6\:50cf\:5143\
+\:4efb\:4f55\:65f6\:95f4\:7684NPP\:503c\:5747\:65e0\:5173"
+}], "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+
+Cell["\:53c2\:4e0e\:6a21\:578b\:8bad\:7ec3\:7684\:6570\:636e\:89c4\:6a21\:8fdc\
+\:5927\:4e8e\:6a21\:578b\:7684\:590d\:6742\:7a0b\:5ea6, \:4e0d\:9700\:8981\
+\:6b63\:5219\:5316", "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\:6a21\:578b\:5efa\:7acb\:65b9\:6cd5", "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10001.}],
+
+Cell["\:4f7f\:7528\:8bad\:7ec3\:96c6\:4e2d\:7684\:6700\:540e(n+1)\:5e74\:81f3\
+\:6700\:540e2\:5e74\:7684\:6570\:636e\:4f5c\:4e3a\:81ea\:53d8\:91cf, \:6700\
+\:540e\:4e00\:5e74\:7684\:6570\:636e\:4f5c\:4e3a\:56e0\:53d8\:91cf, \:6784\
+\:9020n\:5143\:7ebf\:6027\:56de\:5f52\:6a21\:578b", "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10001.}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"linRegSpat", "//", "ClearAll"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"linRegSpat", "[", "year_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"linRegSpat", "[", "year", "]"}], "=", 
+    RowBox[{"Block", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"n", "=", "year"}], ",", "varReg", ",", "mdlReg"}], "}"}], 
+      ",", "\[IndentingNewLine]", "\t", 
+      RowBox[{
+       RowBox[{"varReg", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Unique", "[", "\"\<x\>\"", "]"}], ",", 
+          RowBox[{"{", "n", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       "\t", 
+       RowBox[{"mdlReg", "=", 
+        RowBox[{
+         RowBox[{"train", "[", 
+          RowBox[{"[", 
+           RowBox[{"All", ",", 
+            RowBox[{
+             RowBox[{"-", 
+              RowBox[{"(", 
+               RowBox[{"n", "+", "1"}], ")"}]}], ";;", 
+             RowBox[{"-", "1"}]}]}], "]"}], "]"}], "//", 
+         RowBox[{
+          RowBox[{"LinearModelFit", "[", 
+           RowBox[{"#", ",", "varReg", ",", "varReg"}], "]"}], "&"}]}]}], ";",
+        "\[IndentingNewLine]", "\t", 
+       RowBox[{"Return", "[", "mdlReg", "]"}], ";"}]}], "\[IndentingNewLine]",
+      "]"}]}]}], ";"}]}], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["\:6a21\:578b\:6cdb\:5316\:80fd\:529b\:6d4b\:8bd5", "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10002.}],
+
+Cell["\:4f7f\:7528\:6d4b\:8bd5\:96c6\:4e2d\:7684\:6700\:540e(n+1)\:5e74\:81f3\
+\:6700\:540e2\:5e74\:7684\:6570\:636e\:4f5c\:4e3a\:81ea\:53d8\:91cf, \:9884\
+\:62a5\:6700\:540e\:4e00\:5e74\:7684\:6570\:636e", "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10002.}],
+
+Cell["\:5c06\:9884\:62a5\:7ed3\:679c\:4e0e\:6d4b\:8bd5\:96c6\:4e2d\:5b9e\:9645\
+\:7684\:6570\:636e\:6bd4\:8f83, \:8ba1\:7b97RMSE", "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10002.}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"linRegSpatFunc", "//", "ClearAll"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"linRegSpatFunc", "[", "year_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"linRegSpatFunc", "[", "year", "]"}], "=", 
+    RowBox[{
+     RowBox[{"linRegSpat", "[", "year", "]"}], "[", "\"\<Function\>\"", 
+     "]"}]}]}], ";"}]}], "Input"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"linRegSpatRMSE", "//", "ClearAll"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"linRegSpatRMSE", "[", "year_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"linRegSpatRMSE", "[", "year", "]"}], "=", 
+    RowBox[{"Block", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"n", "=", "year"}], ",", "err", ",", "fn"}], "}"}], ",", 
+      "\[IndentingNewLine]", "\t", 
+      RowBox[{
+       RowBox[{"fn", "=", 
+        RowBox[{"linRegSpatFunc", "[", "year", "]"}]}], ";", 
+       "\[IndentingNewLine]", "\t", 
+       RowBox[{"err", "=", 
+        RowBox[{"Map", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"fn", "@@", 
+              RowBox[{"Most", "[", "#", "]"}]}], "-", 
+             RowBox[{"Last", "[", "#", "]"}]}], ")"}], "&"}], ",", 
+          RowBox[{"test", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", 
+             RowBox[{
+              RowBox[{"-", 
+               RowBox[{"(", 
+                RowBox[{"n", "+", "1"}], ")"}]}], ";;", 
+              RowBox[{"-", "1"}]}]}], "]"}], "]"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\t", 
+       RowBox[{"Return", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"err", "^", "2"}], "//", "Mean"}], "//", "Sqrt"}], "]"}], 
+       ";"}]}], "\[IndentingNewLine]", "]"}]}]}], ";"}]}], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"linRegSpat", "[", "n", "]"}], "[", "\"\<RSquared\>\"", "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "10"}], "}"}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.8473671199628934`", ",", "0.8544933036534879`", ",", 
+   "0.889650492074047`", ",", "0.8897491310376469`", ",", 
+   "0.8980838517573173`", ",", "0.900579043433694`", ",", 
+   "0.900713180948118`", ",", "0.9009666565346341`", ",", 
+   "0.903570007800756`", ",", "0.9036099711520199`"}], "}"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"linRegSpat", "[", "n", "]"}], "[", "\"\<RSquared\>\"", "]"}], 
+    ",", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", "10"}], "}"}]}], "]"}], "//", 
+  RowBox[{
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"#", ",", 
+     RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "10"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0.5", ",", "1"}], "}"}]}], "}"}]}]}], "]"}], 
+   "&"}]}]], "Input"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0.028, 0.5376, 0.5936], PointSize[0.019444444444444445`], 
+    AbsoluteThickness[1.6], 
+    StyleBox[
+     LineBox[{{1., 0.8473671199628934}, {2., 0.8544933036534879}, {3., 
+      0.889650492074047}, {4., 0.8897491310376469}, {5., 
+      0.8980838517573173}, {6., 0.900579043433694}, {7., 0.900713180948118}, {
+      8., 0.9009666565346341}, {9., 0.903570007800756}, {10., 
+      0.9036099711520199}}],
+     FontFamily->"Helvetica"]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0.5025},
+  BaseStyle->{FontFamily -> "Helvetica"},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  LabelStyle->{FontFamily -> "Helvetica"},
+  Method->{},
+  PlotRange->{{0, 10}, {0.5, 1}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0, 0}, {0, 0}},
+  Ticks->{Automatic, Automatic}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"linRegSpatRMSE", "[", "n", "]"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", " ", "10"}], "}"}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "439.2678598423619`", ",", "429.47305962053866`", ",", 
+   "374.37215792886786`", ",", "374.1638851135145`", ",", 
+   "359.81109015689935`", ",", "354.91283647073004`", ",", 
+   "354.61019243802076`", ",", "354.3152505397351`", ",", 
+   "349.6900861477953`", ",", "349.5408939024362`"}], "}"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"linRegSpatRMSE", "[", "n", "]"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", " ", "10"}], "}"}]}], "]"}], "//", 
+  RowBox[{
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"#", ",", " ", 
+     RowBox[{"Joined", "\[Rule]", "True"}], ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "10"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"250", ",", "500"}], "}"}]}], "}"}]}]}], "]"}], 
+   "&"}]}]], "Input"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0.028, 0.5376, 0.5936], PointSize[0.019444444444444445`], 
+    AbsoluteThickness[1.6], 
+    StyleBox[
+     LineBox[{{1., 439.2678598423619}, {2., 429.47305962053866`}, {3., 
+      374.37215792886786`}, {4., 374.1638851135145}, {5., 
+      359.81109015689935`}, {6., 354.91283647073004`}, {7., 
+      354.61019243802076`}, {8., 354.3152505397351}, {9., 
+      349.6900861477953}, {10., 349.5408939024362}}],
+     FontFamily->"Helvetica"]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 251.25},
+  BaseStyle->{FontFamily -> "Helvetica"},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  LabelStyle->{FontFamily -> "Helvetica"},
+  Method->{},
+  PlotRange->{{0, 10}, {250, 500}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0, 0}, {0, 0}},
+  Ticks->{Automatic, Automatic}]], "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{1600, 855},
+WindowMargins->{{-4, Automatic}, {Automatic, -4}},
+PrintingPageRange->{Automatic, Automatic},
+TrackCellChangeTimes->False,
+Magnification:>1.5 Inherited,
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (July 1, 2014)",
+StyleDefinitions->FrontEnd`FileName[{"Book"}, "Textbook.nb", 
+  CharacterEncoding -> "CP936"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 46, 0, 86, "Section"],
+Cell[CellGroupData[{
+Cell[651, 26, 51, 0, 51, "Subsection"],
+Cell[705, 28, 172, 2, 32, "Text"],
+Cell[CellGroupData[{
+Cell[902, 34, 223, 5, 32, "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[1128, 41, 87, 1, 26, "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[1218, 44, 261, 8, 28, "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[1482, 54, 176, 2, 26, "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1707, 62, 89, 1, 51, "Subsection"],
+Cell[1799, 65, 63, 0, 32, "Text"],
+Cell[1865, 67, 1045, 33, 125, "Input"],
+Cell[CellGroupData[{
+Cell[2935, 104, 56, 1, 43, "Input"],
+Cell[2994, 107, 34, 0, 42, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3077, 113, 63, 0, 51, "Subsection"],
+Cell[3143, 115, 378, 6, 32, "Text"],
+Cell[3524, 123, 915, 28, 152, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4488, 157, 96, 1, 86, "Section"],
+Cell[CellGroupData[{
+Cell[4609, 162, 90, 1, 51, "Subsection"],
+Cell[CellGroupData[{
+Cell[4724, 167, 95, 1, 32, "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[4822, 170, 629, 16, 26, "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[5454, 188, 238, 3, 26, "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5729, 196, 105, 1, 32, "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10001.}],
+Cell[5837, 199, 345, 4, 26, "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10001.}]
+}, Open  ]],
+Cell[6197, 206, 1291, 36, 179, "Input"],
+Cell[CellGroupData[{
+Cell[7513, 246, 117, 1, 32, "Text",
+ CellGroupingRules->{GroupTogetherGrouping, 10002.}],
+Cell[7633, 249, 268, 3, 26, "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10002.}],
+Cell[7904, 254, 192, 2, 26, "Item1",
+ CellGroupingRules->{GroupTogetherGrouping, 10002.}]
+}, Open  ]],
+Cell[8111, 259, 369, 10, 71, "Input"],
+Cell[8483, 271, 1417, 40, 179, "Input"],
+Cell[CellGroupData[{
+Cell[9925, 315, 218, 7, 43, "Input"],
+Cell[10146, 324, 348, 7, 42, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10531, 336, 602, 20, 43, "Input"],
+Cell[11136, 358, 1127, 28, 364, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12300, 391, 183, 5, 43, "Input"],
+Cell[12486, 398, 347, 7, 42, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12870, 410, 582, 18, 43, "Input"],
+Cell[13455, 430, 1133, 28, 362, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
