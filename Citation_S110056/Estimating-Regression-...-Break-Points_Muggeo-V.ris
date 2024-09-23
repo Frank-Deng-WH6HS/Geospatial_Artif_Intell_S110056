@@ -1,0 +1,11 @@
+TY  - JOUR
+AU  - Muggeo, Vito
+PY  - 2003/10/15
+SP  - 3055
+EP  - 71
+N2  - This paper deals with fitting piecewise terms in regression models where one or more break-points are true parameters of the model. For estimation, a simple linearization technique is called for, taking advantage of the linear formulation of the problem. As a result, the method is suitable for any regression model with linear predictor and so current software can be used; threshold modelling as function of explanatory variables is also allowed. Differences between the other procedures available are shown and relative merits discussed. Simulations and two examples are presented to illustrate the method.
+T1  - Estimating Regression Models with Unknown Break-Points
+VL  - 22
+DO  - 10.1002/sim.1545
+JO  - Statistics in medicine
+ER  - 
