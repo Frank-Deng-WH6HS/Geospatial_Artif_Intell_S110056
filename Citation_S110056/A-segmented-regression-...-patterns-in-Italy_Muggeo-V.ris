@@ -1,0 +1,13 @@
+TY  - JOUR
+AU  - Muggeo, Vito
+AU  - Attanasio, Massimo
+AU  - Porcu, Mariano
+PY  - 2009/09/01
+SP  - 973
+EP  - 988
+N2  - We propose a segmented discrete-time model for the analysis of event history data in demographic research. Through a unified regression framework, the model provides estimates of the effects of explanatory variables and jointly accommodates flexibly non-proportional differences via segmented relationships. The main appeal relies on ready availability of parameters, changepoints, and slopes, which may provide meaningful and intuitive information on the topic. Furthermore, specific linear constraints on the slopes may also be set to investigate particular patterns. We investigate the intervals between cohabitation and first childbirth and from first to second childbirth using individual data for Italian women from the Second National Survey on Fertility. The model provides insights into dramatic decrease of fertility experienced in Italy, in that it detects a 'common' tendency in delaying the onset of childbearing for the more recent cohorts and a 'specific' postponement strictly depending on the educational level and age at cohabitation.
+T1  - A segmented regression model for event history data: An application to the fertility patterns in Italy
+VL  - 36
+DO  - 10.1080/02664760802552994
+JO  - Journal of Applied Statistics
+ER  - 

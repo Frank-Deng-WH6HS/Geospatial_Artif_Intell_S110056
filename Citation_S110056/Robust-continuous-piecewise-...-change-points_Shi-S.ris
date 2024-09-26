@@ -1,0 +1,18 @@
+TY  - JOUR
+AU  - Shi, Shurong
+AU  - Li, Yi
+AU  - Wan, Chuang
+PY  - 2020
+DA  - 2020/05/01
+TI  - Robust continuous piecewise linear regression model with multiple change points
+JO  - The Journal of Supercomputing
+SP  - 3623
+EP  - 3645
+VL  - 76
+IS  - 5
+AB  - This paper considers a robust piecewise linear regression model with an unknown number of change points. Our estimation framework mainly contains two steps: First, we combine the linearization technique with rank-based estimators to estimate the regression coefficients and the location of thresholds simultaneously, given a large number of change points. The associated inferences for all the parameters are easily derived. Second, we use the LARS algorithm via generalized BIC to refine the candidate threshold estimates and obtain the ultimate estimators. The rank-based regression guarantees that our estimators are less sensitive to outliers and heavy-tailed data, and therefore achieves robustness. Simulation studies and an empirical example on BMI and age relationship illustrate the proposed method.
+SN  - 1573-0484
+UR  - https://doi.org/10.1007/s11227-018-2597-x
+DO  - 10.1007/s11227-018-2597-x
+ID  - Shi2020
+ER  - 

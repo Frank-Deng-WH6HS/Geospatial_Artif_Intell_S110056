@@ -1,0 +1,17 @@
+TY  - JOUR
+TI  - Bayesian Detection of Abnormal Segments in Multiple Time Series
+AU  - Lawrence Bardwell
+AU  - Paul Fearnhead
+T2  - Bayesian Analysis
+VL  - 12
+IS  - 1
+JF  - Bayesian Analysis
+JO  - Bayesian Analysis
+SP  - 193
+EP  - 218
+AB  - We present a novel Bayesian approach to analysing multiple time-series with the aim of detecting abnormal regions. These are regions where the properties of the data change from some normal or baseline behaviour. We allow for the possibility that such changes will only be present in a, potentially small, subset of the time-series. We develop a general model for this problem, and show how it is possible to accurately and efficiently perform Bayesian inference, based upon recursions that enable independent sampling from the posterior distribution. A motivating application for this problem comes from detecting copy number variation (CNVs), using data from multiple individuals. Pooling information across individuals can increase the power of detecting CNVs, but often a specific CNV will only be present in a small subset of the individuals. We evaluate the Bayesian method on both simulated and real CNV data, and give evidence that this approach is more accurate than a recently proposed method for analysing such data.
+
+UR  - https://doi.org/10.1214/16-BA998
+PY  - 2017/3/1
+DO  - 10.1214/16-BA998
+ER  - 

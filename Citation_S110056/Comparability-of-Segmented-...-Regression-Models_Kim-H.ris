@@ -1,0 +1,28 @@
+Provider: Silverchair
+Database: Oxford University Press
+Content: text/plain; charset="UTF-8"
+
+TY  - JOUR
+AU  - Kim, Hyune-Ju
+AU  - Fay, Michael P.
+AU  - Yu, Binbing
+AU  - Barrett, Michael J.
+AU  - Feuer, Eric J.
+T1  - Comparability of Segmented Line Regression Models
+PY  - 2004
+Y1  - 2004/12/01
+DO  - 10.1111/j.0006-341X.2004.00256.x
+JO  - Biometrics
+JA  - Biometrics
+VL  - 60
+IS  - 4
+SP  - 1005
+EP  - 1014
+SN  - 0006-341X
+AB  - Segmented line regression models, which are composed of continuous linear phases, have been applied to describe changes in rate trend patterns. In this article, we propose a procedure to compare two segmented line regression functions, specifically to test (i) whether the two segmented line regression functions are identical or (ii) whether the two mean functions are parallel allowing different intercepts. A general form of the test statistic is described and then the permutation procedure is proposed to estimate the p-value of the test. The permutation test is compared to an approximate F-test in terms of the p-value estimation and the performance of the permutation test is studied via simulations. The tests are applied to compare female lung cancer mortality rates between two registry areas and also to compare female breast cancer mortality rates between two states.
+Y2  - 9/24/2024
+UR  - https://doi.org/10.1111/j.0006-341X.2004.00256.x
+ER  - 
+
+
+
