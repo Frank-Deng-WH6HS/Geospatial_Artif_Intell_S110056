@@ -15,19 +15,17 @@
 ; Muggeo分段点搜索算法的变量代换
 ; Variable alternation for Muggeo segmentation algorithm
 Function MUGGEO_VAR_ALTER, time_ser, x_sgm_pnt, DOUBLE = double
-
   ; 获取时间序列的时相数目, 以及分段点的数目
   ; Get number of phases in time series and segmentation points
   n_phase = Size(time_ser, /N_Element)
   n_sgm_pnt = Size(x_sgm_pnt, /N_Element)
-  
-  ; 变量代换结果的数据类型
-  ; Data type of result of variable alternation
+  ; 指定变量代换结果的数据类型
+  ; Assign data type of result of variable alternation
   ; 先设置为单精度浮点数 
   ; Set to single-prec first
   dtype_result = 4
   ; 以下任意条件满足则设置为双精度浮点数
-  ; Set to double-prec if any of following cond matches
+  ; Set to double-prec if any of following conditions matches
     ; 调用本函数时, 启用/DOUBLE选项
     ; Enable /DOUBLE option when invoking this function
   If Keyword_Set(DOUBLE) Then Begin
@@ -43,21 +41,19 @@ Function MUGGEO_VAR_ALTER, time_ser, x_sgm_pnt, DOUBLE = double
   If Size(x_sgm_pnt, /Type) Eq 5 Then Begin
     dtype_result = 5
   EndIf
-  
   ; 初始化存放变量代换结果的列表
   ; Initialize array to store result of variable alternation
   time_ser_var_alt = Make_Array( $
     n_phase, 2 * n_sgm_pnt + 1, Type = dtype_result $
   )
-  
   ; 变量代换
   ; Variable alternation
-  time_phase = FIndGen(n_phase, Start = 1)
+  time_phase = DIndGen(n_phase, Start = 1)
   time_ser_var_alt[*, 0] = time_phase
   For idx_row = 1, 2 * n_sgm_pnt Do Begin
     ; 取出某个分段点
     ; Pick up certain segmentation point
-    x_sgm = x_sgm_pnt[idx_row / 2 - 1]
+    x_sgm = x_sgm_pnt[(idx_row - 1) / 2]
     If idx_row Mod 2 Then Begin
       ; 取最大值[1-2]
       ; Get maximum value[1-2]
@@ -68,7 +64,6 @@ Function MUGGEO_VAR_ALTER, time_ser, x_sgm_pnt, DOUBLE = double
       time_ser_var_alt[*, idx_row] = time_phase Gt x_sgm 
     EndElse
   EndFor
-  
   ; 输出结果
   ; Output result
   Return, Transpose(time_ser_var_alt)
