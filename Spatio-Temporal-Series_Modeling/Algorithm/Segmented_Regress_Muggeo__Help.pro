@@ -1,3 +1,32 @@
+Pro REGRESS_R2, _EXTRA = _EXTRA
+
+  overview = $
+    "The REGRESS_R2 function " + $
+    "calculates R squared of multivariate linear regression"
+
+  syn_descr = $
+    "result = REGRESS_R2( x, y, [/DOUBLE] )"
+
+  arg_descr = Hash( { $
+    x: $
+      "An Nterms by Npoints array of independent variable data, where " + $
+      "Nterms is the number of coefficients (independent variables) and " + $
+      "Npoints is the number of samples. ", $
+    y: $
+      "An Npoints-element vector of dependent variable points. " $
+  } )
+  
+  kw_descr = Hash( { $
+    DOUBLE: $
+      "Set this keyword to force computations to be done in double-" + $
+      "precision arithmetic. " $
+  } )
+  
+  CLI_HELP, overview, syn_descr, return_descr, arg_descr, kw_descr, $
+    _EXTRA = _EXTRA
+    
+End
+
 Pro MUGGEO_VAR_ALTER, _EXTRA = _EXTRA
   
   overview = $
