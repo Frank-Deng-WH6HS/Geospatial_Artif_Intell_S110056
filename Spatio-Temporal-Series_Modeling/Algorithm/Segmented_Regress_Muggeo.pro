@@ -14,14 +14,15 @@
 
 ; 计算多元线性回归的R^2
 ; Calculate R squared of multivariate linear regression
-Function REGRESS_R2, x, y, DOUBLE = double
+Function REGRESS_R2, x, y, DOUBLE = double, STATUS = status
   ; 配置可选参数的默认值
   ; Configurate default values of optional parameters
   If Not Keyword_Set(DOUBLE) Then double = 0
   ; 获取回归分析的部分计算结果
   ; Obtain certain result of linear regression
-  coef = Regress(x, y, Double = double, YFit = y_pred)
+  coef = Regress(x, y, Double = double, YFit = y_pred, Status = status)
   y_mean = Mean(y)
+  
   ; 计算SST, SSE, R2
   ; Calculate SST, SSE, and R squared
   sum_sq_total = Total((y - y_mean) ^ 2)
@@ -51,11 +52,12 @@ End
 ;     
 ; 输出: 存放变量代换结果的二维数组, (2m+1)列n行
 ; Output: A 2-D array storing alternation result, (2m+1) columns by n rows
-Function MUGGEO_VAR_ALTER, time_ser, x_sgm_pnt, DOUBLE = double
+Function MUGGEO_VAR_ALTER, time_ser, x_sgm_pnt, DOUBLE = double, $
+  TIME_PHASE = time_phase, N_PHASE = n_phase, N_SGM_PNT = n_sgm_pnt
   ; 获取时间序列的时相数目, 以及分段点的数目
   ; Get number of phases in time series and segmentation points
-  n_phase = Size(time_ser, /N_Element)
-  n_sgm_pnt = Size(x_sgm_pnt, /N_Element)
+  If Not Keyword_Set(N_PHASE) Then n_phase = Size(time_ser, /N_Element)
+  If Not Keyword_Set(N_SGM_PNT) Then n_sgm_pnt = Size(x_sgm_pnt, /N_Element)
   ; 指定变量代换结果的数据类型
   ; Assign data type of result of variable alternation
   ; 先设置为单精度浮点数 
@@ -64,18 +66,18 @@ Function MUGGEO_VAR_ALTER, time_ser, x_sgm_pnt, DOUBLE = double
   ; 以下任意条件满足则设置为双精度浮点数
   ; Set to double-prec if any of following conditions matches
     ; 调用本函数时, 启用/DOUBLE选项
-    ; Enable /DOUBLE option when invoking this function
+    ; Enable /DOUBLE option while invoking this function
   If Keyword_Set(DOUBLE) Then Begin
     If double Then Begin
       dtype_result = 5
-    EndIf 
-  EndIf
+    EndIf
     ; 传入time_ser或者x_sgm_pnt的数组数据类型为双精度
     ; Data type of array passed to time_ser or x_sgm_pnt is double-prec
-  If Size(time_ser, /Type) Eq 5 || Size(x_sgm_pnt, /Type) Eq 5 Then Begin
-    dtype_result = 5 
-    double = 1
-  EndIf 
+  EndIf Else If Size(time_ser, /Type) Eq 5 Then Begin
+    dtype_result = 5
+  EndIf Else If Size(x_sgm_pnt, /Type) Eq 5 Then Begin
+    dtype_result = 5
+  EndIf
   ; 初始化存放变量代换结果的列表
   ; Initialize array to store result of variable alternation
   time_ser_var_alt = Make_Array( $
@@ -83,7 +85,9 @@ Function MUGGEO_VAR_ALTER, time_ser, x_sgm_pnt, DOUBLE = double
   )
   ; 变量代换
   ; Variable alternation
-  time_phase = DIndGen(n_phase, Start = 1)
+  If Not Keyword_Set(TIME_PHASE) Then Begin
+    time_phase = DIndGen(n_phase, Start = 1)
+  EndIf
   time_ser_var_alt[*, 0] = time_phase
   For idx_row = 1, 2 * n_sgm_pnt Do Begin
     ; 取出某个分段点
@@ -137,10 +141,11 @@ End
 ; Output: An 1-D array consisting of m segmentation points
 Function MUGGEO_SGM_PNT_ITER, time_ser, n_sgm_pnt, $
   DOUBLE = double, MAX_ITERATION = max_iteration, THRESHOLD = threshold, $
-  COEFFICIENT = coefficient, R_SQUARED = r_squared
+  COEFFICIENT = coefficient, R_SQUARED = r_squared, STATUS = status, $
+  TIME_PHASE = time_phase, N_PHASE = n_phase
   ; 获取时间序列的时相数目
   ; Get number of phases in time series
-  n_phase = Size(time_ser, /N_Element)
+  If Not Keyword_Set(N_PHASE) Then n_phase = Size(time_ser, /N_Element)
   ; 指定分段点搜索结果的数据类型
   ; Assign data type of result of segmentation point searching
   ; 先设置为单精度浮点数
@@ -149,7 +154,7 @@ Function MUGGEO_SGM_PNT_ITER, time_ser, n_sgm_pnt, $
   ; 以下任意条件满足则设置为双精度浮点数
   ; Set to double-prec if any of following conditions matches
     ; 调用本函数时, 启用/DOUBLE选项
-    ; Enable /DOUBLE option when invoking this function
+    ; Enable /DOUBLE option while invoking this function
   If Keyword_Set(DOUBLE) Then Begin
     If Double Then Begin
       dtype_result = 5
@@ -181,20 +186,38 @@ Function MUGGEO_SGM_PNT_ITER, time_ser, n_sgm_pnt, $
   ; 确定迭代终止的阈值
   ; Verify threshold for termination of iteration
   If Not Keyword_Set(THRESHOLD) Then threshold = 0.01d
-  If max_iteration Le 0 Then Begin
+  If threshold Le 0 Then Begin
     Message, /Continue, $
       "Threshold can no be set to a negative number. "
   Endif
+  ; 确定时相
+  ; Verify time phases
+  If Not Keyword_Set(TIME_PHASE) Then Begin
+    time_phase = DIndgen(n_phase, Start = 1)
+  EndIf
+  ; 初始化状态值
+  ; Initialize status value
+  status = 0
   ; 迭代过程
   ; Process of iteration
   For idx_iter = 0, max_iteration - 1 Do Begin
     ; 建立拟合模型并收集系数
     ; Establish regress model and gather coefficients
-    time_ser_var_alt = MUGGEO_VAR_ALTER(time_ser, x_sgm_pnt, $
-      DOUBLE = double)
-    coef = Regress(time_ser_var_alt, time_ser, $
-      Double = double, Const = beta_0 $
+    time_ser_var_alt = MUGGEO_VAR_ALTER(time_ser, x_sgm_pnt, DOUBLE = double, $
+      N_PHASE = n_phase, N_SGM_PNT = n_sgm_pnt, TIME_PHASE = time_phase $
     )
+      coef = Regress(time_ser_var_alt, time_ser, $
+        Double = double, Const = beta_0, Status = status_reg $
+      )
+    status = status And (Not 3) Or status_reg
+    ; 非正常拟合结果处理: 最下二乘系数矩阵奇异
+    ; Anomality handling: Singular coefficient matrix in least square equation
+    If status And 3 Eq 1 Then Begin
+      ; 放弃上一次迭代所得的分段点, 并停止后续的迭代
+      ; Discard segmentation point in last iteration and terminate iteration
+      idx_iter -= 1
+      Break
+    EndIf
     beta_1 = coef[0]
     beta_sgm = coef[1: -1: 2]
     gamma_sgm = coef[2: -1: 2]
@@ -225,7 +248,12 @@ Function MUGGEO_SGM_PNT_ITER, time_ser, n_sgm_pnt, $
       ;   iterations is less than preset threshold 
     If Norm(displacement, Double = double, LNorm = 2) Lt threshold Then Break
   EndFor
-  If idx_iter Eq max_iteration Then idx_iter -= 1
+  ; 判定迭代过程是否达到最大迭代次数
+  ; Discriminate whether maximum iteration exceeds
+  If idx_iter Eq max_iteration Then Begin
+    status = status Or 4
+    idx_iter -= 1
+  EndIf
   ; 截断迭代中间数据记录数组, 并对其反序
   ; Trim and reverse array storing intermediate data
   displacement_list = displacement_list[*, *, idx_iter: 0: -1]
@@ -250,6 +278,7 @@ Function MUGGEO_SGM_PNT_ITER, time_ser, n_sgm_pnt, $
   n_cycle = Where(displacement_accu_mag Lt threshold)
   n_phase_cycle = n_cycle[0] + 1
   If n_phase_cycle Lt idx_iter && n_phase_cycle Ge 1 Then Begin
+    status = status Or 8
     ; 对单次循环中每一组分段点, 计算回归模型的R2
     ; Calculate R squared of regression models for segmentation points
     ;   in each phase of cycle
@@ -260,7 +289,8 @@ Function MUGGEO_SGM_PNT_ITER, time_ser, n_sgm_pnt, $
     r_sq = FltArr(n_phase_cycle)
     For idx_member = 0, n_phase_cycle - 1 Do Begin
       time_ser_var_alt = MUGGEO_VAR_ALTER( $
-        time_ser, displacement_list[*, idx_member], DOUBLE = double $
+        time_ser, displacement_list[*, idx_member], DOUBLE = double, $
+        N_PHASE = n_phase, N_SGM_PNT = n_sgm_pnt $
       )
       r_sq[idx_member] = REGRESS_R2( $
         time_ser_var_alt, time_ser, Double = double $
@@ -275,20 +305,23 @@ Function MUGGEO_SGM_PNT_ITER, time_ser, n_sgm_pnt, $
     ;   segmentation points above
     If Keyword_Set(COEFFICIENT) Then Begin
       time_ser_var_alt = MUGGEO_VAR_ALTER( $
-        time_ser, displacement_list[*, idx_member], DOUBLE = double $
+        time_ser, displacement_list[*, idx_member], DOUBLE = double, $
+        N_PHASE = n_phase, N_SGM_PNT = n_sgm_pnt $
       )
       coef = Regress(time_ser_var_alt, time_ser, $
-        Double = double, CONST = beta_0 $
+        Double = double, CONST = beta_0, Status = status_reg $
       )
+      status = status Or status_reg
       beta_1 = coef[0]
       beta_sgm = coef[1: -1: 2]
     EndIf
   EndIf Else Begin
     r_sq_max = REGRESS_R2( $
-      time_ser_var_alt, time_ser, Double = double $
+      time_ser_var_alt, time_ser, DOUBLE = double, STATUS = status_reg  $
     )
+    status = status Or status_reg
   EndElse
-  If Keyword_set(COEFFICIENT) Then Begin
+  If Keyword_Set(COEFFICIENT) Then Begin
     coefficient = [beta_0, beta_1, beta_sgm]
   EndIf
   r_squared = r_sq_max
