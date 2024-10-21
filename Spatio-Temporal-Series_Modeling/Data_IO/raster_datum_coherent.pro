@@ -27,7 +27,7 @@ Pro RASTER_SPATIAL_INHERIT, $
     Message, "Variable FID" + msg_invalid_var
   Endif Else Begin
     raster = EnviFidToRaster(fid)
-    If Not Keyword_set(NBANDS) Then interleave = raster.NBands
+    If Not Keyword_set(NBANDS) Then nbands = raster.NBands
     If Not Keyword_Set(DATA_TYPE) Then data_type = raster.TypeCode
     If Not Keyword_Set(INTERLEAVE) Then interleave = raster.Interleave
   EndElse

@@ -16,11 +16,10 @@ Pro SEQ_INDEX_RASTER, $
   r_raster = ENVIFidToRaster(r_fid) 
   ; 分块迭代过程
   ; Tiled iteration
-  For idx_row = 0, raster_iter.nTiles - 1 Do Begin
-    tile = Transpose(raster_iter.Next())
-    r_line = SEQUENTIAL_INDEX(tile)
+  ForEach tile, raster_iter, idx_row Do Begin
+    r_line = SEQUENTIAL_INDEX(Transpose(tile))
     r_line = r_line.Reform(n_clm, 1, 1, /Overwrite)
-    r_raster.SetData, r_line, Sub_Rect = [0, idx_row, n_clm - 1, idx_row]
-  EndFor
+    r_raster.SetData, r_line, Sub_Rect = raster_iter.Current_Subrect
+  EndForEach
   r_raster.Save
 End 
