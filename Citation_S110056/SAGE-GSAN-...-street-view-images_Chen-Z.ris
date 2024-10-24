@@ -1,0 +1,14 @@
+TY  - JOUR
+AU  - Chen, Zeqiang
+AU  - Zou, Tongxu
+AU  - Xu, Zheng
+AU  - Zhang, Yan
+AU  - Chen, Nengcheng
+PY  - 2024/09/01
+SP  - 143543
+N2  - Accurately predicting the carbon emissions of urban street vehicles is a current challenge in the field of urban transportation. This study proposed a new SAGE-GSAN model (Graph SAmple and aggreGatE - Graph Spatial Attention Network) to solve this problem. It combines graph neural networks with streetscape features and road network structure to predict the traffic carbon monoxide emissions at the street level. The method takes the street view images, the 5075 roads network structure in Wuhan and 19 street visual elements as the input features, and the carbon monoxide emissions obtained from the driving trajectories as the prediction data. The method achieved an experimental accuracy of 81.4% in predicting carbon monoxide emissions from street cabs. This study also compares the prediction results of traditional neural networks and analyzes the effects of different street-level features and graph convolution layers on the prediction accuracy. The results of this study show that the graph neural network and attention mechanism techniques could solve the fine-grained carbon emission prediction problem at the urban street level effectively. The model code is shared at the: https://github.com/zou9229/CO_Predict_Code
+T1  - SAGE-GSAN: A graph-based method for estimating urban taxi CO emissions using street view images
+VL  - 474
+DO  - 10.1016/j.jclepro.2024.143543
+JO  - Journal of Cleaner Production
+ER  - 

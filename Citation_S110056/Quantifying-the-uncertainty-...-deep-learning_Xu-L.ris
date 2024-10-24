@@ -1,0 +1,15 @@
+TY  - JOUR
+AU  - Xu, Lei
+AU  - Chen, Nengcheng
+AU  - Yang, Chao
+AU  - Yu, Hongchu
+AU  - Chen, Zeqiang
+PY  - 2022/06/14
+SP  - 2923
+EP  - 2938
+N2  - Precipitation forecasting is an important mission in weather science. In recent years, data-driven precipitation forecasting techniques could complement numerical prediction, such as precipitation nowcasting, monthly precipitation projection and extreme precipitation event identification. In data-driven precipitation forecasting, the predictive uncertainty arises mainly from data and model uncertainties. Current deep learning forecasting methods could model the parametric uncertainty by random sampling from the parameters. However, the data uncertainty is usually ignored in the forecasting process and the derivation of predictive uncertainty is incomplete. In this study, the input data uncertainty, target data uncertainty and model uncertainty are jointly modeled in a deep learning precipitation forecasting framework to estimate the predictive uncertainty. Specifically, the data uncertainty is estimated a priori and the input uncertainty is propagated forward through model weights according to the law of error propagation. The model uncertainty is considered by sampling from the parameters and is coupled with input and target data uncertainties in the objective function during the training process. Finally, the predictive uncertainty is produced by propagating the input uncertainty in the testing process. The experimental results indicate that the proposed joint uncertainty modeling framework for precipitation forecasting exhibits better forecasting accuracy (improving RMSE by 1 %–2 % and R2 by 1 %–7 % on average) relative to several existing methods, and could reduce the predictive uncertainty by ∼28 % relative to the approach of Loquercio et al. (2020). The incorporation of data uncertainty in the objective function changes the distributions of model weights of the forecasting model and the proposed method can slightly smooth the model weights, leading to the reduction of predictive uncertainty relative to the method of Loquercio et al. (2020). The predictive accuracy is improved in the proposed method by incorporating the target data uncertainty and reducing the forecasting error of extreme precipitation. The developed joint uncertainty modeling method can be regarded as a general uncertainty modeling approach to estimate predictive uncertainty from data and model in forecasting applications.
+T1  - Quantifying the uncertainty of precipitation forecasting using probabilistic deep learning
+VL  - 26
+DO  - 10.5194/hess-26-2923-2022
+JO  - Hydrology and Earth System Sciences
+ER  - 

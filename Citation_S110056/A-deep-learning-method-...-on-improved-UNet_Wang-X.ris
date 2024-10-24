@@ -1,0 +1,15 @@
+TY  - JOUR
+AU  - Wang, Xiaolei
+AU  - Hu, Zirong
+AU  - Shi, Shouhai
+AU  - Hou, Mei
+AU  - Xu, Lei
+AU  - Xiang, Zhang
+PY  - 2023/05/10
+SP  - 
+N2  - Semantic segmentation of remote sensing imagery (RSI) is critical in many domains due to the diverse landscapes and different sizes of geo-objects that RSI contains, making semantic segmentation challenging. In this paper, a convolutional network, named Adaptive Feature Fusion UNet (AFF-UNet), is proposed to optimize the semantic segmentation performance. The model has three key aspects: (1) dense skip connections architecture and an adaptive feature fusion module that adaptively weighs different levels of feature maps to achieve adaptive feature fusion, (2) a channel attention convolution block that obtains the relationship between different channels using a tailored configuration, and (3) a spatial attention module that obtains the relationship between different positions. AFF-UNet was evaluated on two public RSI datasets and was quantitatively and qualitatively compared with other models. Results from the Potsdam dataset showed that the proposed model achieved an increase of 1.09% over DeepLabv3 + in terms of the average F1 score and a 0.99% improvement in overall accuracy. The visual qualitative results also demonstrated a reduction in confusion of object classes, better performance in segmenting different sizes of object classes, and better object integrity. Therefore, the proposed AFF-UNet model optimizes the accuracy of RSI semantic segmentation.
+T1  - A deep learning method for optimizing semantic segmentation accuracy of remote sensing images based on improved UNet
+VL  - 13
+DO  - 10.1038/s41598-023-34379-2
+JO  - Scientific Reports
+ER  - 

@@ -1,0 +1,97 @@
+TY  - JOUR
+AU  - Xu, Ren
+AU  - Chen, Nengcheng
+AU  - Chen, Yumin
+AU  - Chen, Zeqiang
+PY  - 2020/03/09
+SP  - 1
+EP  - 17
+N2  - Downscaling considerably alleviates the drawbacks of regional climate simulation by general circulation models (GCMs). However, little information is available regarding the downscaling using machine learning methods, specifically at hydrological basin scale. This study developed multiple machine learning (ML) downscaling models, based on a Bayesian model average (BMA), to downscale the precipitation simulation of 8 Coupled Model Intercomparison Project Phase 5 (CMIP5) models using model output statistics (MOS) for the years 1961–2005 in the upper Han River basin. A series of statistical metrics, including Pearson’s correlation coefficient (PCC), root mean squared error (RMSE), and relative bias (Rbias), were used for evaluation and comparative analyses. Moreover, the BMA and the best ML downscaling model were used to downscale precipitation in the 21st century under Representative Concentration Pathway 4.5 (RCP4.5) and RCP8.5 scenarios. The results show the following: (1) The performance of the BMA ensemble simulation is clearly better than that of the individual models and the simple mean model ensemble (MME). The PCC reaches 0.74, and the RMSE is reduced by 28%–60% for all the GCMs and 33% compared to the MME. (2) The downscaled models greatly improved station simulation performance. Support vector machine for regression (SVR) was superior to multilayer perceptron (MLP) and random forest (RF). The downscaling results based on the BMA ensemble simulation and SVR models were regarded as the best performing overall (PCC, RMSE, and Rbias were 0.82, 35.07, mm and −5.45%, respectively). (3) Based on BMA and SVR models, the projected precipitations show a weak increasing trend on the whole under RCP4.5 and RCP8.5. Specifically, the average rainfall during the mid- (2040–2069) and late (2070–2099) 21st century increased by 3.23% and 1.02%, respectively, compared to the base year (1971–2000) under RCP4.5, while they increased by 4.25% and 8.30% under RCP8.5. Additionally, the magnitude of changes during winter and spring was higher than that during summer and autumn. Furthermore, future work is recommended to study the improvement of downscaling models and the effect of local climate.
+
+1. Introduction
+General circulation models (GCMs) are widely utilized to study regional meteorological and hydrological responses under climatic changes. The low resolution of GCMs hinders their applications at a basin scale; thus, downscaling techniques are vital to obtain data at a local scale. Many studies have addressed this task based on various downscaling techniques in various regions of the globe [1–3]. There are two large groups for downscaling including dynamical downscaling (DD), which uses regional climate models (RCMs) to downscale GCMs, and statistical downscaling (SD), which aims to achieve a statistical or empirical relationship between large-scale atmospheric variables (termed predictors) and regional variables (termed predictands). SD has the advantages of a low computational cost, relatively simple implementation, and reliable accuracy. Thus, SD techniques may be convenient if the study mainly concentrates on the downscaling and projection of precipitation at a basin scale.
+The SD methods are generally subdivided into two categories: perfect prognosis (PP) and model output statistics (MOS) [2]. For PP, the statistical relationship is established between a predictand and the observed large-scale predictors, while for MOS, GCM-simulated predictors are exploited to establish the relationship with the observed predictand. Given the availability of a considerable database of historical forecasts and the ability to explicitly account for GCM-inherent bias, MOS has recently gained considerable popularity as an alternative to PP [4, 5]. It is possible for MOS to provide more information regarding the dynamic controls of precipitation or temperature, especially combining precipitation (temperature) data with circulation data as predictors [6]. MOS also has a high potential for projections of climate change [7, 8]. During recent years, MOS models based on regression have become popular for establishing the relationship between GCM-simulated variables and observed rainfall. There are successful studies using MOS downscaling based on regression techniques. For example, Jonathan et al. exploited maximum covariance analysis and principal component regression to downscale MOS in the extratropics and concluded that MOS clearly outperformed PP methods, which exploited observed large-scale predictors [9].
+However, the relationship between local precipitation and the spatial patterns of GCM hindcasts is often very complex. There have been several comparative studies that demonstrated the superiority of machine learning (ML) approaches compared to other SD approaches such as statistical downscaling models or conventional linear regression models [10–12]. ML approaches have proven to be efficient for modeling highly nonlinear relationships [7]. The artificial neural network (ANN) is competent to be applied for climate downscaling due to its ability to establish the nonlinear relationships between predictors and predictands [13]. Meanwhile, support vector machine for regression (SVR) models have also been successfully used to capture highly nonlinear relationships by applying kernel functions to map the low-dimensional input data to a high-dimensional feature space [10]. Furthermore, another ML method, random forest (RF), has been regarded as a competent and robust algorithm for representing complex relationships because it can implement different types of input variables and operates flexibly. This method was also successfully applied to precipitation downscaling [12]. However, the applicability of ML methods in MOS downscaling has not yet been widely explored. Sa’adi et al. compared two ML approaches, RF and SVR, to downscale monthly precipitation based on MOS. The results demonstrated that such strategies were capable of properly downscaling GCM precipitation, while the SVR showed a more accurate performance overall [7]. This result inspired the implementation of ML methods to downscale precipitation, based on MOS, in other regional basins.
+Some studies have demonstrated that multimodel ensemble projections outperform the “best” single model over the long term, as they were effective to reduce the uncertainties [14, 15]. In addition, recent studies have suggested that the GCM is the largest quantified source of uncertainty in the projected effects of climate change on hydrological processes. There are some proposed ensemble methods that have been proven to alleviate the GCM uncertainty, such as the simple model average (MME), Bayesian model average (BMA) [16, 17], and reliability ensemble average (REA) [18]. BMA is especially popular, as it assigns weights to each output model according to ensemble forecasts from different sources into a consensus probability density function (PDF). It is also popular to combine ensemble techniques with downscaling models for regional climate studies. For example, a simple statistical downscaling algorithm and superensemble methods were used to address forecast accuracy and regional predicted monsoon precipitation; it was demonstrated that such strategies outperformed each of the member models and their downscaling counterparts [19]. ANN and SVR were used for PP downscaling, and BMA was further exploited to obtain a multi-GCM ensemble. The corrected ensemble forecasts could represent the historical climate well [20].
+However, there are no studies regarding the capacity of the projections for a combination of BMA-based ensembles and ML downscaling strategies based on MOS in the upper Han River. Thus, the major objectives of this study were to (1) develop MOS-based BMA_ML ensemble downscaling models based on MLP, SVR, and RF methods in the upper Han River basin; (2) study the performance of the BMA method for ensemble model outputs; and (3) evaluate precipitation during the 21st century under RCP4.5 and RCP8.5 in upper Han River basin. Furthermore, based on the study results, a beneficial reference for future long-term management strategies of water resources, disaster mitigation, ecological layout, and other applications at a regional level is expected.
+The remainder of the study is organized as follows: Section 2 describes the study area topography and the observational station data used. The applied methods are discussed in Section 3, including the data processing methods, assembling ensemble models, and downscaling. In Section 4, the results are discussed in detail. Lastly, the authors conclude and propose several prospects based on this study.
+
+2. Study Area and Data
+The Han River is the largest tributary of the Yangtze River, which covers 159 thousand km². In the region, the main terrain types are mountains and hills. The average observed annual rainfall is approximately 700∼1100 mm and shows an obviously seasonal character. During the summer, heavy rainfall occurs due to the descending cold air from the south. Furthermore, flood and drought disasters in the basin are severe due to natural fluctuations and human intervention. In this study, the main region of the mountain and hill terrain of the upper Han River were selected, which contain 13 meteorological stations. Table 1 shows the position information of each station. The observed daily rainfall data for the years from 1961 to 2005 were utilized to calibrate and validate the downscaled models, and the data in 2006–2018 were used to validate the projected precipitation. These data were obtained from the China Meteorological Data Website (http://data.cma.cn/). Figure 1 shows the water system and topography of the Han River and station distributions.
+
+Station
+Number
+Longitude
+Latitude
+Elevation (m)
+
+Taibai
+1
+107.19
+34.02
+1543.6
+Liuba
+2
+106.56
+33.38
+1032.1
+Hanzhong
+3
+107.02
+33.04
+509.5
+Foping
+4
+107.59
+33.31
+827.2
+Nanxian
+5
+109.58
+33.52
+742.2
+Zhenan
+6
+109.09
+33.26
+693.7
+Shangnan
+7
+110.54
+33.32
+523
+Xishan
+8
+111.3
+33.18
+250.3
+Shiquan
+9
+108.16
+33.03
+484.9
+Ankang
+10
+109.02
+32.43
+290.8
+Yunxi
+11
+110.25
+33
+249.1
+Shiyan
+12
+110.47
+32.39
+286.5
+Fangxian
+13
+110.45
+32.03
+426.9
+T1  - Downscaling and Projection of Multi-CMIP5 Precipitation Using Machine Learning Methods in the Upper Han River Basin
+VL  - 2020
+DO  - 10.1155/2020/8680436
+JO  - Advances in Meteorology
+ER  - 

@@ -1,0 +1,24 @@
+TY  - JOUR
+AU  - Huang, Tailai
+AU  - Xiang, Zhang
+AU  - Keno, Berhanu
+AU  - Nam, Won-Ho
+AU  - Xihui, Gu
+AU  - Zeng, Jiangyuan
+AU  - Zhang, Xu
+AU  - Huang, Shuzhe
+AU  - Du, Wenying
+AU  - Wang, Chao
+AU  - Yang, Ing
+AU  - Wang, Peng
+AU  - Wu, Wenkui
+AU  - Chen, Nengcheng
+AU  - Niyogi, Dev
+PY  - 2024/01/01
+SP  - 101135
+N2  - High-resolution, high spatiotemporal continuity, and high-precision temperature data (3H Ta) are essential for understanding local to global climate change and for studying urban heat conditions. Our prior research demonstrated the effectiveness of combining deep learning and point-to-surface scaling to generate 3H Ta. However, the accuracy of the 3H Ta data fusion methods is influenced by the geospatial attributes of temperature itself. In this study, we investigated the effects of geographical spatiotemporal factors on the three aspects of temperature fusion, i.e., data input, deep learning-based temperature fusion, and fused temperature error calibration. The results showed that temperature data had strong geospatial attributes, exhibiting spatiotemporal autocorrelation at the microscale and different clustering characteristics in different macro spatial regions. After incorporating geospatial autocorrelation factors into the temperature fusion model, the R 2 was 0.995, the RMSE was 0.697 °C, and the MAE was 0.527 °C after 10-fold cross-validation. Compared with the model that does not consider spatiotemporal factors, RMSE and MAE are reduced by 68% and 73%, respectively. The use of geographical spatiotemporal differences analysis (GSTDA) error correction combining spatiotemporal factors compensated for temperature underestimation or overestimation at specific times or locations. After calibrating for fusion temperatures at the four validation sites, the RMSE and MAE decreased from 0.75 °C to 0.64 °C–0.69 °C and 0.58 °C, with RMAE and MAE decreasing by 9.37% and 10.15%, respectively. Finally, we generated 500 m daily 3H Ta data for the Wuhan Metropolitan Area in 2019. The results were expanded to Austin, Texas, and Los Angeles, in the USA. Our research results and comparative analysis confirm the necessity of considering geospatial and temporal factors in temperature fusion models, which helps generate 3H Ta.
+T1  - Considering geographical spatiotemporal attributes for seamless air temperature data fusion with high accuracy
+VL  - 33
+DO  - 10.1016/j.rsase.2023.101135
+JO  - Remote Sensing Applications Society and Environment
+ER  - 

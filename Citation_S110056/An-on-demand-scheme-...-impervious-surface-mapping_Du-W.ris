@@ -1,0 +1,16 @@
+TY  - JOUR
+AU  - Huang, Min
+AU  - Chen, Nengcheng
+AU  - Du, Wenying
+AU  - Wen, Mengtian
+AU  - Zhu, Daoye
+AU  - Gong, Jianya
+PY  - 2021/04/13
+SP  - 1
+EP  - 25
+N2  - Impervious surface has become one of the key factors of regional environmental problems and disasters. There rises an urgent need for mapping large-scale high-resolution impervious surfaces to help delicate modeling and overall planning. In the existing large-scale impervious surface mapping studies, there are many studies and products at medium resolution (10 ~ 100 m), some of which are with time series; while only few are at high resolution (<10 m), but not appeared with temporal updates. In the conventional scheme for large-scale high-resolution mapping, plenty of high-resolution imagery (HRI) are required to cover the entire large area and achieve wider coverage as much as possible. The high cost of obtaining abundant HRI limits large-scale high-resolution impervious surface mapping, leading to rare high-resolution impervious surface study at large scales. To alleviate the difficulties in the conventional scheme, an on-demand HRI scheme was proposed based on geos`patial distribution knowledge (low overall proportion and high geospatial aggregation) of impervious surface at large scales, with the advantage of reducing the demand for HRI while ensuring coverage. Adopting the information and knowledge obtained from medium-resolution impervious surface data at large scales, the proposed on-demand HRI scheme only requires HRI where it is really needed, rather than for the entire large area as in the conventional scheme. Reducing the study area by a morphology-based method and selecting necessary HRI by the bidirectional image filtering (BIF) strategy, the on-demand HRI scheme has a smaller requirement of the HRI resources. The proposed on-demand HRI scheme and conventional scheme were implemented and discussed in five study areas. The results show that compared with the conventional method, the proposed on-demand HRI scheme reduced the requirement of HRI while ensuring coverage; and in the case of insufficient HRI coverage, it can reduce the HRI requirements while narrowing data gaps in the large-scale high-resolution impervious surface result. It was also found that the proposed scheme performs well in large-scale areas with low overall proportion and high geospatial aggregation of impervious surface found in the medium-resolution remote sensing product. Additionally, the on-demand HRI scheme will be also useful for large-scale high-resolution mapping of other land cover types.
+T1  - An on-demand scheme driven by the knowledge of geospatial distribution for large-scale high-resolution impervious surface mapping
+VL  - 58
+DO  - 10.1080/15481603.2021.1909304
+JO  - GIScience & Remote Sensing
+ER  - 
