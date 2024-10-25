@@ -1,0 +1,16 @@
+TY  - JOUR
+AU  - Wang, Chao
+AU  - Zhuo, Xinyan
+AU  - Li, Pengfei
+AU  - Chen, Nengcheng
+AU  - Wang, Wei
+AU  - Chen, Zeqiang
+PY  - 2020/11/25
+SP  - 1
+EP  - 12
+N2  - Along with the rapid development of remote sensing satellites and sensor network technology, vast amounts of remote sensing imagery and in situ observations have been accumulated. Further, various researchers and agencies have released a variety of thematic image products. These heterogeneous observations are therefore difficult to utilize comprehensively. In this study, an ontology-based framework for integrating remote sensing imagery, image products, and in situ observations was developed. It was extended based on the Semantic Sensor Network (SSN) ontology in the Web Ontology Language (OWL). The detailed process of ontology construction and rule establishment was demonstrated. Combined with some actual remote sensing imagery, image products, and in situ observations, semantic queries based on DL Query and SPARQL were conducted to establish the rationality and feasibility of the ontology and framework.
+T1  - An Ontology-Based Framework for Integrating Remote Sensing Imagery, Image Products, and In Situ Observations
+VL  - 2020
+DO  - 10.1155/2020/6912820
+JO  - Journal of Sensors
+ER  - 

@@ -1,0 +1,15 @@
+TY  - JOUR
+AU  - Chen, Nengcheng
+AU  - Zhang, Yan
+AU  - Du, Wenying
+AU  - Li, Yingbing
+AU  - Chen, Min
+AU  - Zheng, Xiang
+PY  - 2021/07/01
+SP  - 101629
+N2  - Social sensing is an analytical method to study the interaction between human and space through extracting reliable information from massive volunteered information data. During the ongoing COVID-19 pandemic, there are a large number of Internet social sensing data. However, most of them lack geographic attribute. In order to resolve this problem, this paper proposes a convolutional neural network geographic classification model based on keyword extraction and synonym substitution (KE-CNN) which could determine the geographic attribute by extracting the semantic features from text data. Besides, we realizes the non-contact pandemic social sensing and construct the co-word complex network by capturing the spatiotemporal behaviour of a large number of people. Our research found that (1) mining co-word network can obtain most public opinion information of pandemic events, (2) KE-CNN model improves the accuracy by 5%–15% compared with the traditional machine learning method. Through this method, we could effectively establish medical, catering, railway station, education and other types of text feature set, supplement the missing spatial data tags, and achieve a good geographical seamless social sensing.
+T1  - KE-CNN: A new social sensing method for extracting geographical attributes from text semantic features and its application in Wuhan, China
+VL  - 88
+DO  - 10.1016/j.compenvurbsys.2021.101629
+JO  - Computers, Environment and Urban Systems
+ER  - 

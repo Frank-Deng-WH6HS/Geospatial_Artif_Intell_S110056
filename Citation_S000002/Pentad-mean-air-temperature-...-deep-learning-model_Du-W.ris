@@ -1,0 +1,16 @@
+TY  - JOUR
+AU  - Xu, Lei
+AU  - Zhang, Xi
+AU  - Du, Wenying
+AU  - Yu, Hongchu
+AU  - Chen, Zeqiang
+AU  - Chen, Nengcheng
+PY  - 2023/11/29
+SP  - 1
+EP  - 15
+N2  - Abnormal changes in air temperature cause natural disasters such as droughts, hailstorms, and storms, thereby affecting the normal lives of human beings. Consequently, timely and accurate air temperature prediction is essential for human production and livelihood. Traditional air temperature prediction methods are less accurate and less consider the spatial relationship between air temperature in different regions. In this paper, we propose a new deep learning model, convolutional long short-term memory based on channel attention and spatial autocorrelation (ConvLSTM-CASA), which focuses on the spatial correlation between ambient air temperatures and can effectively capture the interaction of air temperatures in different regions. The results show that the ConvLSTM-CASA model has an average R² of 0.954 and MSE of 5.245 for pentad-mean temperature prediction over the Yangtze River basin. Compared with baseline forecasting models, the MSE accuracy by the ConvLSTM-CASA model improved by 72.45%, 48.95%, 48.97%, 47.79%, and 22.63% over the decision tree regression (DTR), multiple linear regression (MLR), random forests (RF), long short-term memory (LSTM), and ConvLSTM models, respectively. The ConvLSTM-CASA model is expected to outperform the ConvLSTM model over 90% of the area, suggesting robust prediction skill improvement over space. The ConvLSTM-CASA model provides new insights for data-driven pentad-mean air temperature prediction by including elaborate channel and spatial feature modeling, which aid individuals in comprehending the intricate patterns of air temperature fluctuations.
+T1  - Pentad-mean air temperature prediction using spatial autocorrelation and attention-based deep learning model
+VL  - 155
+DO  - 10.1007/s00704-023-04763-z
+JO  - Theoretical and Applied Climatology
+ER  - 
