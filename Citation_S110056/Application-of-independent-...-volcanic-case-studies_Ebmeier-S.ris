@@ -1,0 +1,10 @@
+TY  - JOUR
+AU  - Ebmeier, Susanna
+PY  - 2016/11/25
+SP  - 
+N2  - A challenge in the analysis of multi-temporal Interferometric Synthetic Aperture Radar (InSAR) data is distinguishing and separating volcanic, tectonic and anthropogenic displacements from each other and from atmospheric or orbital noise. Independent Component Analysis (ICA) is a method for decomposing a mixed signal based on the assumption that the component sources are non-Gaussian and statistically independent. ICA has potential as a tool for exploratory analysis of InSAR data, and in particular for testing whether geophysical signals are related or independent. This article presents tests of the applicability of ICA to InSAR using synthetic data and application to Sentinel-1A archive images from two contrasting examples of volcano deformation. Co-eruptive subsidence associated with the April 2015 eruption of Calbuco (Chile) was identified in spatial patterns found by maximising both spatial and temporal independence. Spatial patterns and rates of lava subsidence were retrieved using ICA analysis of interferograms from Parícutin lava fields (Mexico), and found to be consistent with previous observations. I demonstrate that ICA is an appropriate method for the analysis of volcanic signals in the presence of atmospheric noise, and propose a strategy for the automatic identification of geophysical displacements using cluster analysis of the spatial patterns of independent components. This approach allows the detection of geophysical processes on a range of scales and provides a test of signal independence where multiple displacement sources are active.
+T1  - Application of Independent Component Analysis to multi-temporal InSAR data with volcanic case studies
+VL  - 121
+DO  - 10.1002/2016JB013765
+JO  - Journal of Geophysical Research. Solid Earth
+ER  - 

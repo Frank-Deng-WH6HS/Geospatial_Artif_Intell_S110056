@@ -1,0 +1,12 @@
+TY  - BOOK
+AU  - Marchesi, Silvia
+AU  - Bruzzone, Lorenzo
+PY  - 2009/08/17
+SP  - II
+EP  - 980 
+N2  - In this paper Principal Component Analysis (PCA), Independent Component Analysis (ICA), and Kernel Independent Component Analysis (KICA) are studied and compared in the framework of unsupervised change detection in multitemporal remote sensing images. Different architectures for using the above-mentioned techniques in change detection are investigated, and their capability to discriminate true changes from the different sources of noise analyzed. Experimental results obtained on a pair of very high geometrical resolution Quickbird images point out the main properties of the different methods when applied to change detection.
+T1  - ICA and kernel ICA for change detection in multispectral remote sensing images
+VL  - 2
+DO  - 10.1109/IGARSS.2009.5418265
+JO  - International Geoscience and Remote Sensing Symposium (IGARSS)
+ER  - 
