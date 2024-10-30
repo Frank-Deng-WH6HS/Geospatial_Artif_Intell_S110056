@@ -9,6 +9,7 @@ Pro LIN_REG_RASTER, $
   R_SQUARED = r_squared, TIME_PHASE = time_phase
   ; 获取现有栅格, 并构造分块迭代器
   ; Obtain existant raster and construct tile iterator
+  Compile_opt IDL2
   raster = ENVIFidToRaster(fid)
   n_clm = raster.NColumns
   n_phase = raster.NBands
@@ -94,6 +95,7 @@ Pro PW_LIN_REG_RASTER, $
   R_SQUARED = r_squared, STATUS = status, TIME_PHASE = time_phase
   ; 获取现有栅格, 并构造分块迭代器
   ; Obtain existant raster and construct tile iterator
+  Compile_opt IDL2
   raster = ENVIFidToRaster(fid)
   n_clm = raster.NColumns
   n_phase = raster.NBands
