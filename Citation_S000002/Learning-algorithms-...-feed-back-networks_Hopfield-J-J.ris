@@ -1,0 +1,11 @@
+TY  - JOUR
+AU  - Hopfield, John
+PY  - 1988/01/01
+SP  - 8429
+EP  - 33
+N2  - Learning algorithms have been used both on feed-forward deterministic networks and on feed-back statistical networks to capture input-output relations and do pattern classification. These learning algorithms are examined for a class of problems characterized by noisy or statistical data, in which the networks learn the relation between input data and probability distributions of answers. In simple but nontrivial networks the two learning rules are closely related. Under some circumstances the learning problem for the statistical networks can be solved without Monte Carlo procedures. The usual arbitrary learning goals of feed-forward networks can be given useful probabilistic meaning.
+T1  - Learning algorithms and probability distributions in feed-forward and feed-back networks
+VL  - 84
+DO  - 10.1073/pnas.84.23.8429
+JO  - Proceedings of the National Academy of Sciences of the United States of America
+ER  - 

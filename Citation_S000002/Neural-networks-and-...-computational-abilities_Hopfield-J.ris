@@ -1,0 +1,23 @@
+
+TY  - JOUR
+T1  - Neural networks and physical systems with emergent collective computational abilities.
+AU  - Hopfield, J J
+Y1  - 1982/04/01
+PY  - 1982
+DA  - 1982/04/01
+N1  - doi: 10.1073/pnas.79.8.2554
+DO  - 10.1073/pnas.79.8.2554
+T2  - Proceedings of the National Academy of Sciences
+JF  - Proceedings of the National Academy of Sciences
+JO  - Proceedings of the National Academy of Sciences
+SP  - 2554
+EP  - 2558
+VL  - 79
+IS  - 8
+PB  - Proceedings of the National Academy of Sciences
+M3  - doi: 10.1073/pnas.79.8.2554
+UR  - https://doi.org/10.1073/pnas.79.8.2554
+Y2  - 2024/11/04
+N2  - Computational properties of use of biological organisms or to the construction of computers can emerge as collective properties of systems having a large number of simple equivalent components (or neurons). The physical meaning of content-addressable memory is described by an appropriate phase space flow of the state of a system. A model of such a system is given, based on aspects of neurobiology but readily adapted to integrated circuits. The collective properties of this model produce a content-addressable memory which correctly yields an entire memory from any subpart of sufficient size. The algorithm for the time evolution of the state of the system is based on asynchronous parallel processing. Additional emergent collective properties include some capacity for generalization, familiarity recognition, categorization, error correction, and time sequence retention. The collective properties are only weakly sensitive to details of the modeling or the failure of individual devices.
+AB  - Computational properties of use of biological organisms or to the construction of computers can emerge as collective properties of systems having a large number of simple equivalent components (or neurons). The physical meaning of content-addressable memory is described by an appropriate phase space flow of the state of a system. A model of such a system is given, based on aspects of neurobiology but readily adapted to integrated circuits. The collective properties of this model produce a content-addressable memory which correctly yields an entire memory from any subpart of sufficient size. The algorithm for the time evolution of the state of the system is based on asynchronous parallel processing. Additional emergent collective properties include some capacity for generalization, familiarity recognition, categorization, error correction, and time sequence retention. The collective properties are only weakly sensitive to details of the modeling or the failure of individual devices.
+ER  - 

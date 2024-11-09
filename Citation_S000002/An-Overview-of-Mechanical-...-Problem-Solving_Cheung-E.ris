@@ -1,0 +1,16 @@
+TY  - CONF
+AU  - Robinson, J. A.
+ED  - Banerji, R. B.
+ED  - Mesarovic, M. D.
+PY  - 1970
+DA  - 1970//
+TI  - An Overview of Mechanical Theorem Proving
+BT  - Theoretical Approaches to Non-Numerical Problem Solving
+SP  - 2
+EP  - 20
+PB  - Springer Berlin Heidelberg
+CY  - Berlin, Heidelberg
+AB  - The majority of the theorem proving algorithms which have been studied over the past decade are for the first order predicate calculus. One or two very tentative papers (Gould (1966), Robinson (1968 IFIPS), Robinson (1969)) discuss theorem proving algorithms for the higher order predicate calculus. We shall deal in this paper only with the first category. It is too early yet to form any useful appraisal of the work now being done on algorithms in the second category.
+SN  - 978-3-642-99976-5
+ID  - 10.1007/978-3-642-99976-5_1
+ER  - 

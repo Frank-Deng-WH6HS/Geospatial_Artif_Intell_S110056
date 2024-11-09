@@ -1,0 +1,20 @@
+TY  - JOUR
+AU  - Lillicrap, Timothy P.
+AU  - Santoro, Adam
+AU  - Marris, Luke
+AU  - Akerman, Colin J.
+AU  - Hinton, Geoffrey
+PY  - 2020
+DA  - 2020/06/01
+TI  - Backpropagation and the brain
+JO  - Nature Reviews Neuroscience
+SP  - 335
+EP  - 346
+VL  - 21
+IS  - 6
+AB  - During learning, the brain modifies synapses to improve behaviour. In the cortex, synapses are embedded within multilayered networks, making it difficult to determine the effect of an individual synaptic modification on the behaviour of the system. The backpropagation algorithm solves this problem in deep artificial neural networks, but historically it has been viewed as biologically problematic. Nonetheless, recent developments in neuroscience and the successes of artificial neural networks have reinvigorated interest in whether backpropagation offers insights for understanding learning in the cortex. The backpropagation algorithm learns quickly by computing synaptic updates using feedback connections to deliver error signals. Although feedback connections are ubiquitous in the cortex, it is difficult to see how they could deliver the error signals required by strict formulations of backpropagation. Here we build on past and recent developments to argue that feedback connections may instead induce neural activities whose differences can be used to locally approximate these signals and hence drive effective learning in deep networks in the brain.
+SN  - 1471-0048
+UR  - https://doi.org/10.1038/s41583-020-0277-3
+DO  - 10.1038/s41583-020-0277-3
+ID  - Lillicrap2020
+ER  - 

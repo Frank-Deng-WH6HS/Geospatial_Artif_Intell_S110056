@@ -1,0 +1,18 @@
+TY  - JOUR
+AU  - LeCun, Yann
+AU  - Bengio, Yoshua
+AU  - Hinton, Geoffrey
+PY  - 2015
+DA  - 2015/05/01
+TI  - Deep learning
+JO  - Nature
+SP  - 436
+EP  - 444
+VL  - 521
+IS  - 7553
+AB  - Deep learning allows computational models that are composed of multiple processing layers to learn representations of data with multiple levels of abstraction. These methods have dramatically improved the state-of-the-art in speech recognition, visual object recognition, object detection and many other domains such as drug discovery and genomics. Deep learning discovers intricate structure in large data sets by using the backpropagation algorithm to indicate how a machine should change its internal parameters that are used to compute the representation in each layer from the representation in the previous layer. Deep convolutional nets have brought about breakthroughs in processing images, video, speech and audio, whereas recurrent nets have shone light on sequential data such as text and speech.
+SN  - 1476-4687
+UR  - https://doi.org/10.1038/nature14539
+DO  - 10.1038/nature14539
+ID  - LeCun2015
+ER  - 

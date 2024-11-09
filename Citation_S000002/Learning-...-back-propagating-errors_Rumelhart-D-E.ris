@@ -1,0 +1,18 @@
+TY  - JOUR
+AU  - Rumelhart, David E.
+AU  - Hinton, Geoffrey E.
+AU  - Williams, Ronald J.
+PY  - 1986
+DA  - 1986/10/01
+TI  - Learning representations by back-propagating errors
+JO  - Nature
+SP  - 533
+EP  - 536
+VL  - 323
+IS  - 6088
+AB  - We describe a new learning procedure, back-propagation, for networks of neurone-like units. The procedure repeatedly adjusts the weights of the connections in the network so as to minimize a measure of the difference between the actual output vector of the net and the desired output vector. As a result of the weight adjustments, internal ‘hidden’ units which are not part of the input or output come to represent important features of the task domain, and the regularities in the task are captured by the interactions of these units. The ability to create useful new features distinguishes back-propagation from earlier, simpler methods such as the perceptron-convergence procedure1.
+SN  - 1476-4687
+UR  - https://doi.org/10.1038/323533a0
+DO  - 10.1038/323533a0
+ID  - Rumelhart1986
+ER  - 
