@@ -1,0 +1,17 @@
+TY  - JOUR
+AU  - Praing, Reasey
+AU  - Schneider, Markus
+PY  - 2008
+DA  - 2008/09/01
+TI  - Efficient Implementation Techniques for Topological Predicates on Complex Spatial Objects
+JO  - GeoInformatica
+SP  - 313
+EP  - 356
+VL  - 12
+IS  - 3
+AB  - Topological relationships like overlap, inside, meet, and disjoint uniquely characterize the relative position between objects in space. For a long time, they have been a focus of interdisciplinary research as in artificial intelligence, cognitive science, linguistics, robotics, and spatial reasoning. Especially as predicates, they support the design of suitable query languages for spatial data retrieval and analysis in spatial database systems and geographical information systems. While, to a large extent, conceptual aspects of topological predicates (like their definition and reasoning with them) as well as strategies for avoiding unnecessary or repetitive predicate executions (like predicate migration and spatial index structures) have been emphasized, the development of robust and efficient implementation techniques for them has been largely neglected. Especially the recent design of topological predicates for all combinations of complex spatial data types has resulted in a large increase of their numbers and stressed the importance of their efficient implementation. The goal of this article is to develop correct and efficient implementation techniques of topological predicates for all combinations of complex spatial data types including two-dimensional point, line, and region objects, as they have been specified by different authors and in different commercial and public domain software packages. Our solution consists of two phases. In the exploration phase, for a given scene of two spatial objects, all topological events like intersection and meeting situations are summarized in two precisely defined topological feature vectors (one for each argument object of a topological predicate) whose specifications are characteristic and unique for each combination of spatial data types. These vectors serve as input for the evaluation phase which analyzes the topological events and determines the Boolean result of a topological predicate (predicate verification) or the kind of topological predicate (predicate determination) by a formally defined method called nine-intersection matrix characterization. Besides this general evaluation method, the article presents an optimized method for predicate verification, called matrix thinning, and an optimized method for predicate determination, called minimum cost decision tree. The methods presented in this article are applicable to all known complete collections of mutually exclusive topological predicates that are formally based on the well known nine-intersection model.
+SN  - 1573-7624
+UR  - https://doi.org/10.1007/s10707-007-0035-y
+DO  - 10.1007/s10707-007-0035-y
+ID  - Praing2008
+ER  - 
